@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="utf-8"?>
+<includes>
+	<include name="DefaultMusicSubMenu">
+		<item>
+			<label>133</label>
+			<onclick>ActivateWindow(MusicLibrary,Artists,return)</onclick>
+			<visible>Library.HasContent(Music)</visible>
+			<visible>Substring(Control.GetLabel(4327),music) + IsEmpty(Skin.String(MusicSub1))</visible>
+		</item>
+		<item>
+			<label>132</label>
+			<onclick>ActivateWindow(MusicLibrary,Albums,return)</onclick>
+			<visible>Library.HasContent(Music)</visible>
+			<visible>Substring(Control.GetLabel(4327),music) + IsEmpty(Skin.String(MusicSub2))</visible>
+		</item>
+		<item>
+			<label>134</label>
+			<onclick>ActivateWindow(MusicLibrary,Songs,return)</onclick>
+			<visible>Library.HasContent(Music)</visible>
+			<visible>Substring(Control.GetLabel(4327),music) + IsEmpty(Skin.String(MusicSub3))</visible>
+		</item>
+		<item>
+			<label>744</label>
+			<onclick>ActivateWindow(MusicFiles)</onclick>
+			<visible>Substring(Control.GetLabel(4327),music) + IsEmpty(Skin.String(MusicSub4))</visible>
+		</item>
+		<item>
+			<label>14022</label>
+			<onclick>ActivateWindow(MusicLibrary)</onclick>
+			<visible>Library.HasContent(Music)</visible>
+			<visible>Substring(Control.GetLabel(4327),music) + IsEmpty(Skin.String(MusicSub5))</visible>
+		</item>
+		<item>
+			<label>24001</label>
+			<onclick condition="Library.HasContent(Music)">ActivateWindow(MusicLibrary,Addons,return)</onclick>
+			<onclick condition="!Library.HasContent(Music)">ActivateWindow(MusicFiles,Addons,return)</onclick>
+			<visible>Substring(Control.GetLabel(4327),music) + IsEmpty(Skin.String(MusicSub7))</visible>
+		</item>
+		<item>
+			<label>$LOCALIZE[31040]</label>
+			<onclick>ActivateWindow(500)</onclick>
+			<visible>Substring(Control.GetLabel(4327),music) + IsEmpty(Skin.String(MusicSub8)) + Player.HasAudio</visible>
+		</item>
+		<item>
+			<label>31334</label>
+			<onclick>ActivateWindow(MusicLibrary,RecentlyAddedAlbums)</onclick>
+			<visible>Substring(Control.GetLabel(4327),music) + IsEmpty(Skin.String(MusicSub9))</visible>
+		</item>
+		<item>
+			<label>31333</label>
+			<onclick>ActivateWindow(MusicLibrary,RecentlyPlayedAlbums)</onclick>
+			<visible>Substring(Control.GetLabel(4327),music) + IsEmpty(Skin.String(MusicSub10))</visible>
+		</item>
+	</include>
+	<include name="DefaultVideosSubMenu">
+		<item>
+			<label>136</label>
+			<onclick>ActivateWindow(Videos,Playlists,return)</onclick>
+			<visible>Substring(Control.GetLabel(4327),videos) + IsEmpty(Skin.String(VideosSub1))</visible>
+		</item>
+		<item>
+			<label>31502</label>
+			<onclick>SetProperty(DontRunTVShowScripts,True,Home)</onclick>
+			<onclick>ActivateWindow(Videos,MovieTitles,return)</onclick>
+			<visible>Library.HasContent(Movies)</visible>
+			<visible>Substring(Control.GetLabel(4327),videos) + IsEmpty(Skin.String(VideosSub2))</visible>
+		</item>
+		<item>
+			<label>31503</label>
+			<onclick>ActivateWindow(Videos,TvShowTitles,return)</onclick>
+			<visible>Library.HasContent(TVShows)</visible>
+			<visible>Substring(Control.GetLabel(4327),videos) + IsEmpty(Skin.String(VideosSub3))</visible>
+		</item>
+		<item>
+			<label>20389</label>
+			<onclick>SetProperty(DontRunTVShowScripts,True,Home)</onclick>
+			<onclick>ActivateWindow(Videos,MusicVideoTitles,return)</onclick>
+			<visible>Library.HasContent(MusicVideos)</visible>
+			<visible>Substring(Control.GetLabel(4327),videos) + IsEmpty(Skin.String(VideosSub4))</visible>
+		</item>
+		<item>
+			<label>744</label>
+			<onclick>SetProperty(DontRunTVShowScripts,True,Home)</onclick>
+			<onclick>ActivateWindow(Videos,Files,return)</onclick>
+			<visible>Substring(Control.GetLabel(4327),videos) + IsEmpty(Skin.String(VideosSub5))</visible>
+		</item>
+		<item>
+			<label>31507</label>
+			<onclick>ActivateWindow(Videos,Addons,return)</onclick>
+			<visible>Substring(Control.GetLabel(4327),videos) + IsEmpty(Skin.String(VideosSub6))</visible>
+		</item>
+	</include>
+	<include name="DefaultSystemSubMenu">
+		<item>
+			<label>31731</label>
+			<onclick>ActivateWindow(SkinSettings)</onclick>
+			<visible>Substring(Control.GetLabel(4327),settings) + IsEmpty(Skin.String(SystemSub1))</visible>
+		</item>
+		<item>
+			<label>7</label>
+			<onclick>ActivateWindow(FileManager)</onclick>
+			<visible>Substring(Control.GetLabel(4327),settings) + IsEmpty(Skin.String(SystemSub2))</visible>
+		</item>
+		<item>
+			<label>13200</label>
+			<onclick>ActivateWindow(Profiles)</onclick>
+			<visible>Substring(Control.GetLabel(4327),settings) + IsEmpty(Skin.String(SystemSub3))</visible>
+		</item>
+		<item>
+			<label>130</label>
+			<onclick>ActivateWindow(SystemInfo)</onclick>
+			<visible>Substring(Control.GetLabel(4327),settings) + IsEmpty(Skin.String(SystemSub4))</visible>
+		</item>
+		<item>
+			<label>24001</label>
+			<onclick>ActivateWindow(AddonBrowser)</onclick>
+			<visible>Substring(Control.GetLabel(4327),settings) + IsEmpty(Skin.String(SystemSub5))</visible>
+		</item>
+		<item>
+			<label>31732</label>
+			<onclick>ActivateWindow(1124)</onclick>
+			<visible>Substring(Control.GetLabel(4327),settings) + IsEmpty(Skin.String(SystemSub6))</visible>
+		</item>
+	</include>
+	<include name="DefaultShutdownSubMenu">
+		<item>
+			<label>$LOCALIZE[31009]</label>
+			<onclick>AlarmClock(shutdowntimer,Shutdown())</onclick>
+			<visible>System.CanPowerDown | System.CanSuspend | System.CanHibernate</visible>
+			<visible>Substring(Control.GetLabel(4327),shutdown) + IsEmpty(Skin.String(ShutdownSub1)) + !System.HasAlarm(shutdowntimer)</visible>
+		</item>
+		<item>
+			<label>$LOCALIZE[222]</label>
+			<onclick>CancelAlarm(shutdowntimer)</onclick>
+			<visible>Substring(Control.GetLabel(4327),shutdown) + IsEmpty(Skin.String(ShutdownSub1)) + System.HasAlarm(shutdowntimer)</visible>
+		</item>
+		<item>
+			<label>$LOCALIZE[13016]</label>
+			<onclick>Powerdown()</onclick>
+			<visible>Substring(Control.GetLabel(4327),shutdown) + IsEmpty(Skin.String(ShutdownSub8)) + System.CanPowerDown</visible>
+		</item>
+		<item>
+			<label>13013</label>
+			<onclick>Reset()</onclick>
+			<visible>Substring(Control.GetLabel(4327),shutdown) + IsEmpty(Skin.String(ShutdownSub2)) + System.CanReboot</visible>
+		</item>
+		<item>
+			<label>13011</label>
+			<onclick>Suspend()</onclick>
+			<visible>Substring(Control.GetLabel(4327),shutdown) + IsEmpty(Skin.String(ShutdownSub4)) + System.CanSuspend</visible>
+		</item>
+		<item>
+			<label>13010</label>
+			<onclick>Hibernate()</onclick>
+			<visible>Substring(Control.GetLabel(4327),shutdown) + IsEmpty(Skin.String(ShutdownSub5)) + System.CanHibernate</visible>
+		</item>
+		<item>
+			<label>20126</label>
+			<onclick>System.LogOff</onclick>
+			<visible>Substring(Control.GetLabel(4327),shutdown) + IsEmpty(Skin.String(ShutdownSub6)) + [System.HasLoginScreen | IntegerGreaterThan(System.ProfileCount,1)] + System.Loggedon</visible>
+		</item>
+		<item>
+			<label>13009</label>
+			<onclick>Quit</onclick>
+			<visible>Substring(Control.GetLabel(4327),shutdown) + IsEmpty(Skin.String(ShutdownSub7)) + System.ShowExitButton</visible>
+		</item>
+	</include>
+	<include name="DefaultMoviesSubMenu">
+		<item>
+			<label>$LOCALIZE[31162]</label>
+			<onclick>SetProperty(DontRunTVShowScripts,True,Home)</onclick>
+			<onclick condition="!IsEmpty(Skin.String(HomeMenuSubMoviesTrailer))">RunAddon($INFO[Skin.String(HomeMenuSubMoviesTrailer)])</onclick>
+			<onclick condition="IsEmpty(Skin.String(HomeMenuSubMoviesTrailer))">Skin.SetAddon(HomeMenuSubMoviesTrailer,xbmc.addon.video)</onclick>
+			<visible>Substring(Control.GetLabel(4327),movie) + IsEmpty(Skin.String(MoviesSub2))</visible>
+		</item>
+		<item>
+			<label>369</label>
+			<onclick>SetProperty(DontRunTVShowScripts,True,Home)</onclick>
+			<onclick>ActivateWindow(Videos,MovieTitles,return)</onclick>
+			<visible>Substring(Control.GetLabel(4327),movie) + IsEmpty(Skin.String(MoviesSub4))</visible>
+		</item>
+		<item>
+			<label>31334</label>
+			<onclick>SetProperty(DontRunTVShowScripts,True,Home)</onclick>
+			<onclick>ActivateWindow(Videos,RecentlyAddedMovies,return)</onclick>
+			<visible>Substring(Control.GetLabel(4327),movie) + IsEmpty(Skin.String(MoviesSub3))</visible>
+		</item>
+		<item>
+			<description>Search</description>
+			<label>Search</label>
+			<onclick>ActivateWindow(VideoLibrary,movietitles,Return)</onclick>
+			<onclick>SendClick(8)</onclick>
+			<visible>Substring(Control.GetLabel(4327),movie) + IsEmpty(Skin.String(MoviesSub5))</visible>
+		</item>
+		<item>
+			<label>135</label>
+			<onclick>SetProperty(DontRunTVShowScripts,True,Home)</onclick>
+			<onclick>ActivateWindow(Videos,MovieGenres,return)</onclick>
+			<visible>Substring(Control.GetLabel(4327),movie) + IsEmpty(Skin.String(MoviesSub5))</visible>
+		</item>
+		<item>
+			<label>652</label>
+			<onclick>SetProperty(DontRunTVShowScripts,True,Home)</onclick>
+			<onclick>ActivateWindow(Videos,MovieYears,return)</onclick>
+			<visible>Substring(Control.GetLabel(4327),movie) + IsEmpty(Skin.String(MoviesSub6))</visible>
+		</item>
+		<item>
+			<label>344</label>
+			<onclick>SetProperty(DontRunTVShowScripts,True,Home)</onclick>
+			<onclick>SetProperty(BrowseActors,true,home)</onclick>
+			<onclick>ActivateWindow(Videos,MovieActors,return)</onclick>
+			<visible>Substring(Control.GetLabel(4327),movie) + IsEmpty(Skin.String(MoviesSub7))</visible>
+		</item>
+		<item>
+			<label>20348</label>
+			<onclick>SetProperty(BrowseActors,true,home)</onclick>
+			<onclick>SetProperty(DontRunTVShowScripts,True,Home)</onclick>
+			<onclick>ActivateWindow(Videos,MovieDirectors,return)</onclick>
+			<visible>Substring(Control.GetLabel(4327),movie) + IsEmpty(Skin.String(MoviesSub8))</visible>
+		</item>
+		<item>
+			<label>24069</label>
+			<onclick>UpdateLibrary(video)</onclick>
+			<visible>Substring(Control.GetLabel(4327),movie) + IsEmpty(Skin.String(MoviesSub9))</visible>
+		</item>
+		<item>
+			<label>31845</label>
+			<onclick>SetProperty(DontRunTVShowScripts,True,Home)</onclick>
+			<onclick>ActivateWindow(Videos,MovieSets,return)</onclick>
+			<visible>Substring(Control.GetLabel(4327),movie) + IsEmpty(Skin.String(MoviesSub11))</visible>
+		</item>
+	</include>
+	<include name="DefaultTVShowsSubMenu">
+		<item>
+			<label>369</label>
+			<onclick>ActivateWindow(Videos,TVShowTitles,return)</onclick>
+			<visible>Substring(Control.GetLabel(4327),tv) + IsEmpty(Skin.String(TVShowsSub1))</visible>
+		</item>
+		<item>
+			<label>135</label>
+			<onclick>ActivateWindow(Videos,TVShowGenres,return)</onclick>
+			<visible>Substring(Control.GetLabel(4327),tv) + IsEmpty(Skin.String(TVShowsSub3))</visible>
+		</item>
+		<item>
+			<label>31334</label>
+			<onclick>ActivateWindow(Videos,RecentlyAddedEpisodes,return)</onclick>
+			<visible>Substring(Control.GetLabel(4327),tv) + IsEmpty(Skin.String(TVShowsSub4))</visible>
+		</item>
+		<item>
+			<description>Search</description>
+			<label>Search</label>
+			<onclick>ActivateWindow(VideoLibrary,TVShowtitles,Return)</onclick>
+			<onclick>SendClick(8)</onclick>
+			<visible>Substring(Control.GetLabel(4327),tv) + IsEmpty(Skin.String(TVShowsSub4))</visible>
+		</item>
+		<item>
+			<label>575</label>
+			<onclick>ActivateWindow(Videos,library://video/inprogressshows.xml,return)</onclick>
+			<visible>Substring(Control.GetLabel(4327),tv) + IsEmpty(Skin.String(TVShowsSub8))</visible>
+		</item>
+		<item>
+			<label>652</label>
+			<onclick>ActivateWindow(Videos,TVShowYears,return)</onclick>
+			<visible>Substring(Control.GetLabel(4327),tv) + IsEmpty(Skin.String(TVShowsSub5))</visible>
+		</item>
+		<item>
+			<label>344</label>
+			<onclick>SetProperty(BrowseActors,true,home)</onclick>
+			<onclick>ActivateWindow(Videos,TVShowActors,return)</onclick>
+			<visible>Substring(Control.GetLabel(4327),tv) + IsEmpty(Skin.String(TVShowsSub6))</visible>
+		</item>
+	</include>
+	<!--Main Menu-->
+	<include name="ShutdownMainMenu">
+		<item id="12">
+			<label fallback="31508">$INFO[Skin.String(ShutdownHomeItem.Label)]</label>
+			<property name="Path" fallback="ActivateWindow(1113)">$INFO[Skin.String(ShutdownHomeItem.Path)]</property>
+			<property name="Type" fallback="custom">$INFO[Skin.String(ShutdownHomeItem.Type)]</property>
+			<property name="SubMenu" fallback="shutdown">$INFO[Skin.String(ShutdownHomeItem.SubMenu)]</property>
+			<property name="InfoLine" fallback="shutdown">$INFO[Skin.String(ShutdownHomeItem.InfoLine)]</property>
+			<property name="BigIcon" fallback="special://skin/extras/BigIcons/Power.png">$INFO[Skin.String(ShutdownHomeItem.Icon)]</property>
+			<property name="DisableIcon">$INFO[Skin.String(ShutdownHomeItem.Disable)]</property>
+			<property name="Widget2Title">$INFO[Skin.String(ShutdownHomeItem.Widget2Title)]</property>
+			<property name="WidgetTitle">$INFO[Skin.String(ShutdownHomeItem.WidgetTitle)]</property>
+			<property name="Widget2">$INFO[Skin.String(ShutdownHomeItem.Widget2)]</property>
+			<property name="Widget">$INFO[Skin.String(ShutdownHomeItem.Widget)]</property>
+			<onclick>SetProperty($INFO[Window(home).Property(MenuName)],ShutdownHomeItem,home)</onclick>
+			<onclick>SetFocus(9006)</onclick>
+			<icon fallback="special://skin/backgrounds/shutdown/">$INFO[Skin.String(ShutdownHomeItem.MultiFanart)]</icon>
+		</item>
+	</include>
+	<include name="SettingsMainMenu">
+		<item id="5">
+			<label fallback="31506">$INFO[Skin.String(SettingsHomeItem.Label)]</label>
+			<property name="Path" fallback="ActivateWindow(settings)">$INFO[Skin.String(SettingsHomeItem.Path)]</property>
+			<property name="Type" fallback="custom">$INFO[Skin.String(SettingsHomeItem.Type)]</property>
+			<property name="SubMenu" fallback="settings">$INFO[Skin.String(SettingsHomeItem.SubMenu)]</property>
+			<property name="InfoLine" fallback="system">$INFO[Skin.String(SettingsHomeItem.InfoLine)]</property>
+			<property name="BigIcon" fallback="special://skin/extras/BigIcons/Controlpanel.png">$INFO[Skin.String(SettingsHomeItem.Icon)]</property>
+			<property name="DisableIcon">$INFO[Skin.String(SettingsHomeItem.Disable)]</property>
+			<property name="Widget2Title">$INFO[Skin.String(SettingsHomeItem.Widget2Title)]</property>
+			<property name="WidgetTitle">$INFO[Skin.String(SettingsHomeItem.WidgetTitle)]</property>
+			<property name="Widget2">$INFO[Skin.String(SettingsHomeItem.Widget2)]</property>
+			<property name="Widget">$INFO[Skin.String(SettingsHomeItem.Widget)]</property>
+			<onclick>SetProperty($INFO[Window(home).Property(MenuName)],SettingsHomeItem,home)</onclick>
+			<onclick>SetFocus(9006)</onclick>
+			<icon fallback="special://skin/backgrounds/system/">$INFO[Skin.String(SettingsHomeItem.MultiFanart)]</icon>
+		</item>
+	</include>
+	<include name="ProgramsMainMenu">
+		<item id="1">
+			<label fallback="31505">$INFO[Skin.String(ProgramsHomeItem.Label)]</label>
+			<property name="Path" fallback="ActivateWindow(Programs,Addons,return)">$INFO[Skin.String(ProgramsHomeItem.Path)]</property>
+			<property name="Type" fallback="custom">$INFO[Skin.String(ProgramsHomeItem.Type)]</property>
+			<property name="SubMenu" fallback="programs">$INFO[Skin.String(ProgramsHomeItem.SubMenu)]</property>
+			<property name="InfoLine" fallback="programs">$INFO[Skin.String(ProgramsHomeItem.InfoLine)]</property>
+			<property name="BigIcon" fallback="special://skin/extras/BigIcons/Computer.png">$INFO[Skin.String(ProgramsHomeItem.Icon)]</property>
+			<property name="DisableIcon">$INFO[Skin.String(ProgramsHomeItem.Disable)]</property>
+			<property name="Widget2Title">$INFO[Skin.String(ProgramsHomeItem.Widget2Title)]</property>
+			<property name="WidgetTitle">$INFO[Skin.String(ProgramsHomeItem.WidgetTitle)]</property>
+			<property name="Widget2">$INFO[Skin.String(ProgramsHomeItem.Widget2)]</property>
+			<property name="Widget">$INFO[Skin.String(ProgramsHomeItem.Widget)]</property>
+			<onclick>SetProperty($INFO[Window(home).Property(MenuName)],ProgramsHomeItem,home)</onclick>
+			<onclick>SetFocus(9006)</onclick>
+			<icon fallback="special://skin/backgrounds/programs/">$INFO[Skin.String(ProgramsHomeItem.MultiFanart)]</icon>
+		</item>
+	</include>
+	<include name="VideosMainMenu">
+		<item id="2">
+			<label fallback="31504">$INFO[Skin.String(VideosHomeItem.Label)]</label>
+			<property name="Path" fallback="ActivateWindow(Videos,root)">$INFO[Skin.String(VideosHomeItem.Path)]</property>
+			<property name="Type" fallback="custom">$INFO[Skin.String(VideosHomeItem.Type)]</property>
+			<property name="SubMenu" fallback="videos">$INFO[Skin.String(VideosHomeItem.SubMenu)]</property>
+			<property name="InfoLine" fallback="none">$INFO[Skin.String(VideosHomeItem.InfoLine)]</property>
+			<property name="BigIcon" fallback="special://skin/extras/BigIcons/Camcorder.png">$INFO[Skin.String(VideosHomeItem.Icon)]</property>
+			<property name="DisableIcon">$INFO[Skin.String(VideosHomeItem.Disable)]</property>
+			<property name="Widget2Title">$INFO[Skin.String(VideosHomeItem.Widget2Title)]</property>
+			<property name="WidgetTitle">$INFO[Skin.String(VideosHomeItem.WidgetTitle)]</property>
+			<property name="Widget2">$INFO[Skin.String(VideosHomeItem.Widget2)]</property>
+			<property name="Widget">$INFO[Skin.String(VideosHomeItem.Widget)]</property>
+			<onclick>SetProperty($INFO[Window(home).Property(MenuName)],VideosHomeItem,home)</onclick>
+			<onclick>SetFocus(9006)</onclick>
+			<icon fallback="special://skin/backgrounds/videos/">$INFO[Skin.String(VideosHomeItem.MultiFanart)]</icon>
+		</item>
+	</include>
+	<include name="TVShowsMainMenu">
+		<item id="11">
+			<label fallback="31503">$INFO[Skin.String(TVShowHomeItem.Label)]</label>
+			<property name="Path" fallback="ActivateWindow(Videos,TVShowTitles,return)">$INFO[Skin.String(TVShowHomeItem.Path)]</property>
+			<property name="Type" fallback="custom">$INFO[Skin.String(TVShowHomeItem.Type)]</property>
+			<property name="SubMenu" fallback="tv">$INFO[Skin.String(TVShowHomeItem.SubMenu)]</property>
+			<property name="InfoLine" fallback="tvshows">$INFO[Skin.String(TVShowHomeItem.InfoLine)]</property>
+			<property name="BigIcon" fallback="special://skin/extras/BigIcons/Television.png">$INFO[Skin.String(TVShowHomeItem.Icon)]</property>
+			<property name="DisableIcon">$INFO[Skin.String(TVShowHomeItem.Disable)]</property>
+			<property name="Widget2Title">$INFO[Skin.String(TVShowHomeItem.Widget2Title)]</property>
+			<property name="WidgetTitle">$INFO[Skin.String(TVShowHomeItem.WidgetTitle)]</property>
+			<property name="Widget2">$INFO[Skin.String(TVShowHomeItem.Widget2)]</property>
+			<property name="Widget">$INFO[Skin.String(TVShowHomeItem.Widget)]</property>
+			<onclick>SetProperty($INFO[Window(home).Property(MenuName)],TVShowHomeItem,home)</onclick>
+			<onclick>SetFocus(9006)</onclick>
+			<icon fallback="special://skin/backgrounds/tvshows/">$INFO[Skin.String(TVShowHomeItem.MultiFanart)]</icon>
+		</item>
+	</include>
+	<include name="MoviesMainMenu">
+		<item id="10">
+			<label fallback="31502">$INFO[Skin.String(MovieHomeItem.Label)]</label>
+			<property name="Path" fallback="ActivateWindow(Videos,MovieTitles,return)">$INFO[Skin.String(MovieHomeItem.Path)]</property>
+			<property name="Type" fallback="custom">$INFO[Skin.String(MovieHomeItem.Type)]</property>
+			<property name="SubMenu" fallback="movies">$INFO[Skin.String(MovieHomeItem.SubMenu)]</property>
+			<property name="InfoLine" fallback="movies">$INFO[Skin.String(MovieHomeItem.InfoLine)]</property>
+			<property name="BigIcon" fallback="special://skin/extras/BigIcons/Film.png">$INFO[Skin.String(MovieHomeItem.Icon)]</property>
+			<property name="DisableIcon">$INFO[Skin.String(MovieHomeItem.Disable)]</property>
+			<property name="Widget2Title">$INFO[Skin.String(MovieHomeItem.Widget2Title)]</property>
+			<property name="WidgetTitle">$INFO[Skin.String(MovieHomeItem.WidgetTitle)]</property>
+			<property name="Widget2">$INFO[Skin.String(MovieHomeItem.Widget2)]</property>
+			<property name="Widget">$INFO[Skin.String(MovieHomeItem.Widget)]</property>
+			<onclick>SetProperty($INFO[Window(home).Property(MenuName)],MovieHomeItem,home)</onclick>
+			<onclick>SetFocus(9006)</onclick>
+			<icon fallback="special://skin/backgrounds/movies/">$INFO[Skin.String(MovieHomeItem.MultiFanart)]</icon>
+		</item>
+	</include>
+	<include name="MusicMainMenu">
+		<item id="3">
+			<label fallback="31501">$INFO[Skin.String(MusicHomeItem.Label)]</label>
+			<property name="Path" fallback="ActivateWindow(music)">$INFO[Skin.String(MusicHomeItem.Path)]</property>
+			<property name="Type" fallback="custom">$INFO[Skin.String(MusicHomeItem.Type)]</property>
+			<property name="SubMenu" fallback="music">$INFO[Skin.String(MusicHomeItem.SubMenu)]</property>
+			<property name="InfoLine" fallback="music">$INFO[Skin.String(MusicHomeItem.InfoLine)]</property>
+			<property name="BigIcon" fallback="special://skin/extras/BigIcons/Headphone.png">$INFO[Skin.String(MusicHomeItem.Icon)]</property>
+			<property name="DisableIcon">$INFO[Skin.String(MusicHomeItem.Disable)]</property>
+			<property name="Widget2Title">$INFO[Skin.String(MusicHomeItem.Widget2Title)]</property>
+			<property name="WidgetTitle">$INFO[Skin.String(MusicHomeItem.WidgetTitle)]</property>
+			<property name="Widget2">$INFO[Skin.String(MusicHomeItem.Widget2)]</property>
+			<property name="Widget">$INFO[Skin.String(MusicHomeItem.Widget)]</property>
+			<onclick>SetProperty($INFO[Window(home).Property(MenuName)],MusicHomeItem,home)</onclick>
+			<onclick>SetFocus(9006)</onclick>
+			<icon fallback="special://skin/backgrounds/music/">$INFO[Skin.String(MusicHomeItem.MultiFanart)]</icon>
+		</item>
+	</include>
+	<include name="MusicVideosMainMenu">
+		<item id="33">
+			<label fallback="20389">$INFO[Skin.String(MusicVideosHomeItem.Label)]</label>
+			<property name="Path" fallback="ActivateWindow(Videos,MusicVideoTitles,return)">$INFO[Skin.String(MusicVideosHomeItem.Path)]</property>
+			<property name="Type" fallback="custom">$INFO[Skin.String(MusicVideosHomeItem.Type)]</property>
+			<property name="SubMenu" fallback="none">$INFO[Skin.String(MusicVideosHomeItem.SubMenu)]</property>
+			<property name="InfoLine" fallback="musicvideos">$INFO[Skin.String(MusicVideosHomeItem.InfoLine)]</property>
+			<property name="BigIcon" fallback="special://skin/extras/BigIcons/Media.png">$INFO[Skin.String(MusicVideosHomeItem.Icon)]</property>
+			<property name="DisableIcon">$INFO[Skin.String(MusicVideosHomeItem.Disable)]</property>
+			<property name="Widget2Title">$INFO[Skin.String(MusicVideosHomeItem.Widget2Title)]</property>
+			<property name="WidgetTitle">$INFO[Skin.String(MusicVideosHomeItem.WidgetTitle)]</property>
+			<property name="Widget2">$INFO[Skin.String(MusicVideosHomeItem.Widget2)]</property>
+			<property name="Widget">$INFO[Skin.String(MusicVideosHomeItem.Widget)]</property>
+			<onclick>SetProperty($INFO[Window(home).Property(MenuName)],MusicVideosHomeItem,home)</onclick>
+			<onclick>SetFocus(9006)</onclick>
+			<icon fallback="special://skin/backgrounds/musicvideos/">$INFO[Skin.String(MusicVideosHomeItem.MultiFanart)]</icon>
+		</item>
+	</include>
+	<include name="Furniture_ClassicHomeGradient">
+		<control type="image">
+			<left>0</left>	<top>455</top>	<width>2120</width>	<height>225</height>
+			<texture>home/homemenu_gradient.png</texture>
+		</control>
+		<control type="image">
+			<top>453</top>	<width>1920</width>	<height>225</height>
+			<texture>home/homemenu_overlay.png</texture>
+			<colordiffuse>$VAR[DialogColorVar]</colordiffuse>
+			<visible>Skin.HasSetting(glasshome)</visible>
+		</control>
+	</include>
+	<include name="MainMenuLabels">
+		<top>-3</top>
+		<height>225</height>
+		<align>center</align>
+		<label>$INFO[ListItem.Label]</label>
+		<font>Font_MainClassic</font>
+	</include>
+	<include name="MainMenuListContent">
+		<left>-338</left>	<top>450</top>	<width>3069</width>	<height>225</height>
+		<hitrect x="-238" y="475" w="2400" h="130"/>
+		<onleft>9000</onleft>
+		<onright>9000</onright>
+		<onup condition="Skin.HasSetting(lowermainmenu) + Control.IsVisible(4444)">4444</onup>
+		<onup condition="Skin.HasSetting(lowermainmenu)  + !Control.IsVisible(4444) + Control.IsVisible(4445)">4445</onup>
+		<onup condition="Skin.HasSetting(lowermainmenu)  + !Control.IsVisible(4444) + !Control.IsVisible(4445)">SetFocus(9009)</onup>
+		<onup condition="!Skin.HasSetting(lowermainmenu) + Control.IsVisible(4445)">4445</onup>
+		<onup condition="!Skin.HasSetting(lowermainmenu) + !Control.IsVisible(4445)">SetFocus(9009)</onup>
+		<ondown>9010</ondown>
+		<ondown condition="!IntegerGreaterThan(Container(9010).NumItems,0) + !Skin.HasSetting(lowermainmenu) + Control.IsVisible(4444)">4444</ondown>
+		<scrolltime tween="quadratic">300</scrolltime>
+		<include condition="Skin.HasSetting(mainmenuicons)">FocusPosition4</include>
+		<include condition="!Skin.HasSetting(mainmenuicons)">FocusPosition2</include>
+		<visible>![Player.HasMedia + System.IdleTime(8)]</visible>
+		<orientation>horizontal</orientation>
+		<animation effect="slide" end="-302,0" time="320" tween="cubic" easing="inout" condition="Skin.HasSetting(biggergap)">Conditional</animation>
+		<animation effect="fade" end="100" time="160">Visible</animation>
+		<animation effect="fade" start="100" end="30" time="160" condition="[Window.IsVisible(1113) | ControlGroup(9001).HasFocus | Control.HasFocus(8000) | Control.HasFocus(7000) | ControlGroup(6000).HasFocus | ControlGroup(5000).HasFocus]">conditional</animation>
+		<itemlayout height="225" width="250" condition="Skin.HasSetting(mainmenuicons)">
+			<control type="image">
+				<left>252</left>	<top>64</top>	<width>88</width>	<height>88</height>
+				<texture background="true">$INFO[ListItem.Property(BigIcon)]</texture>
+				<colordiffuse>white5</colordiffuse>
+				<visible>SubString(ListItem.Property(BigIcon),/BigIcons/)</visible>
+			</control>
+			<control type="image">
+				<left>252</left>	<top>66</top>	<width>88</width>	<height>60</height>
+				<aspectratio>keep</aspectratio>
+				<texture background="true">$INFO[ListItem.Property(BigIcon)]</texture>
+				<colordiffuse>48FFFFFF</colordiffuse>
+				<visible>!SubString(ListItem.Property(BigIcon),/BigIcons/)</visible>
+			</control>
+			<control type="label">
+				<left>171</left>	<top>29</top>	<width>250</width>	<height>225</height>
+				<align>center</align>
+				<label>$INFO[ListItem.Label]</label>
+				<font>Font_Reg30_Caps</font>
+				<textcolor>white4</textcolor>
+			</control>
+		</itemlayout>
+		<focusedlayout height="225" width="250" condition="Skin.HasSetting(mainmenuicons)">
+			<control type="group">
+				<animation effect="zoom" start="80" end="100" center="296,108" delay="160" tween="back" time="240">Focus</animation>
+				<control type="image">
+					<left>252</left>	<top>64</top>	<width>88</width>	<height>88</height>
+					<texture background="true">$INFO[ListItem.Property(BigIcon)]</texture>
+					<colordiffuse>$VAR[MainMenuFontColorVar]</colordiffuse>
+					<visible>SubString(ListItem.Property(BigIcon),/BigIcons/)</visible>
+				</control>
+				<control type="image">
+					<left>252</left>	<top>66</top>	<width>88</width>	<height>60</height>
+					<aspectratio>keep</aspectratio>
+					<texture background="true">$INFO[ListItem.Property(BigIcon)]</texture>
+					<colordiffuse>FFFFFFFF</colordiffuse>
+					<visible>!SubString(ListItem.Property(BigIcon),/BigIcons/)</visible>
+				</control>
+			</control>
+			<control type="label">
+				<left>171</left>	<top>29</top>	<width>250</width>	<height>225</height>
+				<align>center</align>
+				<label>[B]$INFO[ListItem.Label][/B]</label>
+				<font>Font_Reg30_Caps</font>
+				<textcolor>$VAR[MainMenuFontColorVar]</textcolor>
+			</control>
+		</focusedlayout>
+		<itemlayout height="225" width="519" condition="!Skin.HasSetting(biggergap) + !Skin.HasSetting(mainmenuicons)">
+			<control type="label">
+				<left>0</left>
+				<width>519</width>
+				<textcolor>white5</textcolor>
+				<include>MainMenuLabels</include>
+			</control>
+		</itemlayout>
+		<focusedlayout height="225" width="519" condition="!Skin.HasSetting(biggergap) + !Skin.HasSetting(mainmenuicons)">
+			<control type="label">
+				<left>0</left>
+				<width>519</width>
+				<textcolor>$VAR[MainMenuFontColorVar]</textcolor>
+				<include>MainMenuLabels</include>
+			</control>
+		</focusedlayout>
+		<itemlayout height="225" width="639" condition="Skin.HasSetting(biggergap)">
+			<control type="label">
+				<left>0</left>
+				<width>639</width>
+				<textcolor>white5</textcolor>
+				<include>MainMenuLabels</include>
+			</control>
+		</itemlayout>
+		<focusedlayout height="225" width="639" condition="Skin.HasSetting(biggergap)">
+			<control type="label">
+				<left>0</left>
+				<width>639</width>
+				<textcolor>$VAR[MainMenuFontColorVar]</textcolor>
+				<include>MainMenuLabels</include>
+			</control>
+		</focusedlayout>
+		<content>
+			<include condition="IsEmpty(Skin.String(MusicHomeItem.Disable))">MusicMainMenu</include>
+			<include condition="IsEmpty(Skin.String(MovieHomeItem.Disable))">MoviesMainMenu</include>
+			<include condition="IsEmpty(Skin.String(MusicVideosHomeItem.Disable))">MusicVideosMainMenu</include>
+			<include condition="IsEmpty(Skin.String(TVShowHomeItem.Disable))">TVShowsMainMenu</include>
+			<include condition="IsEmpty(Skin.String(VideosHomeItem.Disable))">VideosMainMenu</include>
+			<include condition="IsEmpty(Skin.String(ProgramsHomeItem.Disable))">ProgramsMainMenu</include>
+			<include condition="IsEmpty(Skin.String(SettingsHomeItem.Disable))">SettingsMainMenu</include>
+			<include condition="IsEmpty(Skin.String(ShutdownHomeItem.Disable))">ShutdownMainMenu</include>
+		</content>
+	</include>
+	<include name="SubMenuListContent">
+		<left>145</left>	<top>-4</top>	<width>1150</width>	<height>50</height>
+		<onleft>9010</onleft>
+		<onright>9010</onright>
+		<orientation>horizontal</orientation>
+		<focusposition>2</focusposition>
+		<hitrect x="-238" y="0" w="2400" h="130"/>
+		<scrolltime tween="quadratic">300</scrolltime>
+		<onup>9000</onup>
+		<onback>SetFocus(9000)</onback>
+		<ondown condition="!Skin.HasSetting(lowermainmenu) + Control.IsVisible(4444)">4444</ondown>
+		<ondown condition="!Skin.HasSetting(lowermainmenu) + !Control.IsVisible(4444)">SetFocus(9011)</ondown>
+		<ondown condition="Skin.HasSetting(lowermainmenu)">SetFocus(9011)</ondown>
+		<itemlayout width="230" height="50">
+			<control type="label">
+				<left>0</left>
+				<width>224</width>	<height>50</height>
+				<align>center</align>
+				<label>$INFO[ListItem.Label]</label>
+				<font>Font_Reg28_Caps</font>
+				<textcolor>grey2</textcolor>
+			</control>
+		</itemlayout>
+		<focusedlayout width="230" height="50">
+			<control type="label">
+				<left>0</left>
+				<width>224</width>	<height>50</height>
+				<align>center</align>
+				<label>$INFO[ListItem.Label]</label>
+				<font>Font_Reg28_Caps</font>
+				<textcolor>grey2</textcolor>
+				<animation effect="zoom" center="112,25" start="100" end="130" time="160" tween="quadratic">Focus</animation>
+				<animation effect="zoom" center="112,25" start="130" end="100" time="160" tween="quadratic">Unfocus</animation>
+				<scroll>true</scroll>
+			</control>
+			<control type="label">
+				<left>0</left>
+				<width>224</width>	<height>50</height>
+				<align>center</align>
+				<label>$INFO[ListItem.Label]</label>
+				<font>Font_Reg28_Caps</font>
+				<textcolor>$VAR[HomeMenuTextFocusVar]</textcolor>
+				<animation effect="zoom" center="112,25" start="100" end="130" time="160" tween="quadratic">Focus</animation>
+				<animation effect="zoom" center="112,25" start="130" end="100" time="160" tween="quadratic">Unfocus</animation>
+				<scroll>true</scroll>
+				<include>Animation_VisibleChange200</include>
+				<visible>Control.HasFocus(9010)</visible>
+			</control>
+		</focusedlayout>
+		<content>
+			<!--Videos-->
+			<include condition="Substring(Skin.String(submenulist),videos) | IsEmpty(Skin.String(VideosHomeItem.SubMenu))">DefaultVideosSubMenu</include>
+			<!--Music-->
+			<include condition="Substring(Skin.String(submenulist),music) | IsEmpty(Skin.String(MusicHomeItem.SubMenu))">DefaultMusicSubMenu</include>
+			<!--System-->
+			<include condition="Substring(Skin.String(submenulist),settings) | IsEmpty(Skin.String(SettingsHomeItem.SubMenu))">DefaultSystemSubMenu</include>
+			<!--Movies-->
+			<include condition="Substring(Skin.String(submenulist),movie) | IsEmpty(Skin.String(MovieHomeItem.SubMenu))">DefaultMoviesSubMenu</include>
+			<!--settings-->
+			<!--TV Shows-->
+			<include condition="Substring(Skin.String(submenulist),tv) | IsEmpty(Skin.String(TVShowHomeItem.SubMenu))">DefaultTVShowsSubMenu</include>
+			<!--Shutdown-->
+			<include condition="Substring(Skin.String(submenulist),shutdown) | IsEmpty(Skin.String(ShutdownHomeItem.SubMenu))">DefaultShutdownSubMenu</include>
+		</content>
+	</include>
+	<include name="MainMenuFixedList">
+		<control type="fixedlist" id="9000">
+			<include condition="Window.IsActive(home)">MainMenuListContent</include>
+			<include condition="Window.IsActive(1124)">MainMenuListContent1124</include>
+		</control>
+	</include>
+	<include name="MainMenuWrapList">
+		<control type="wraplist" id="9000">
+			<include condition="Window.IsActive(home)">MainMenuListContent</include>
+			<include condition="Window.IsActive(1124)">MainMenuListContent1124</include>
+		</control>
+	</include>
+	<include name="SubMenuFixedList">
+		<control type="fixedlist" id="9010">
+			<include condition="Window.IsActive(home)">SubMenuListContent</include>
+			<include condition="Window.IsActive(1124)">SubMenuListContent1124</include>
+		</control>
+	</include>
+	<include name="SubMenuWrapList">
+		<control type="wraplist" id="9010">
+			<include condition="Window.IsActive(home)">SubMenuListContent</include>
+			<include condition="Window.IsActive(1124)">SubMenuListContent1124</include>
+		</control>
+	</include>
+	<include name="MainMenuCommonContent">
+		<control type="group">
+			<control type="label" id="4321">
+				<label>$VAR[WidgetTypeVar]</label>
+				<include>HiddenObject</include>
+			</control>
+			<control type="label" id="4322">
+				<label>$VAR[MultiFanartVar]</label>
+				<include>HiddenObject</include>
+			</control>
+			<control type="label" id="4323">
+				<label>$VAR[LibraryStatsVar]</label>
+				<include>HiddenObject</include>
+			</control>
+			<include>BackgroundFadeLabels</include>
+			<control type="label" id="4325">
+				<label>$VAR[Widget2TypeVar]</label>
+				<include>HiddenObject</include>
+			</control>
+			<control type="label" id="4326">
+				<label>$VAR[InfoLineVar]</label>
+				<include>HiddenObject</include>
+			</control>
+			<control type="label" id="4327">
+				<label>$VAR[SubMenuVar]</label>
+				<include>HiddenObject</include>
+			</control>
+		</control>
+	</include>
+	<include name="FocusPosition4">
+		<focusposition>4</focusposition>
+	</include>
+	<include name="FocusPosition2">
+		<focusposition>2</focusposition>
+	</include>
+	<include name="MainMenuBottomBar">
+		<control type="group">
+			<visible>!Window.IsActive(1159) + Skin.HasSetting(bottomMenu)</visible>
+			<include>Animation_WindowFade250</include>
+			<animation effect="slide" start="0,100" end="0,0" time="320" tween="quadratic">VisibleChange</animation>
+			<control type="image">
+				<left>698</left>	<top>1003</top>	<width>525</width>	<height>87</height>
+				<texture>osd/osd_top_bar.png</texture>
+			</control>
+			<control type="grouplist">
+				<left>765</left>	<top>1048</top>	<width>380</width>
+				<align>center</align>
+				<itemgap>0</itemgap>
+				<orientation>horizontal</orientation>
+				<usecontrolcoords>true</usecontrolcoords>
+				<control type="image">
+					<top>2</top>	<width>60</width>	<height>30</height>
+					<align>center</align>	<aligny>center</aligny>
+					<aspectratio>keep</aspectratio>
+					<texture>common/logo_pics.png</texture>
+					<colordiffuse>black</colordiffuse>
+					<visible>Player.HasMedia</visible>
+				</control>
+				<control type="image">
+					<width>60</width>	<height>35</height>
+					<align>center</align>	<aligny>top</aligny>
+					<aspectratio>keep</aspectratio>
+					<texture>common/logo_music.png</texture>
+					<colordiffuse>black</colordiffuse>
+					<visible>System.HasMediadvd</visible>
+				</control>
+				<control type="image">
+					<top>-5</top>	<width>45</width>	<height>45</height>
+					<texture>dialogs/circle/$INFO[Window(Home).Property(RecommendedMovie.1.PercentPlayed)].png</texture>
+					<colordiffuse>black</colordiffuse>
+					<visible>!IsEmpty(Window(Home).Property(RecommendedMovie.1.Title))</visible>
+				</control>
+				<control type="label">
+					<top>2</top>
+					<width min="50" max="600">auto</width>	<height>30</height>
+					<label>$INFO[Window(Home).Property(RecommendedMovie.1.Title)]</label>	<font>Font_Reg26_Caps</font>	<textcolor>black</textcolor>
+					<scroll>false</scroll>
+					<visible>!IsEmpty(Window(Home).Property(RecommendedMovie.1.Title))</visible>
+				</control>
+			</control>
+		</control>
+	</include>
+</includes>

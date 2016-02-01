@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window type="dialog" id="1150">
+    <defaultcontrol always="true">4</defaultcontrol>
+    <allowoverlay>no</allowoverlay>
+    <onload>ClearProperty(SubMenuType,1124)</onload>
+    <onload condition="SubString(Skin.String(ItemToEdit.SubMenu),none)">SetProperty(SubmenuType,none,1124)</onload>
+    <onload condition="SubString(Skin.String(ItemToEdit.SubMenu),movie)">SetProperty(SubmenuType,movies,1124)</onload>
+    <onload condition="SubString(Skin.String(ItemToEdit.SubMenu),tv)">SetProperty(SubmenuType,tv,1124)</onload>
+    <onload condition="SubString(Skin.String(ItemToEdit.SubMenu),music)">SetProperty(SubmenuType,music,1124)</onload>
+    <onload condition="SubString(Skin.String(ItemToEdit.SubMenu),settings)">SetProperty(SubmenuType,settings,1124)</onload>
+    <onload condition="SubString(Skin.String(ItemToEdit.SubMenu),shutdown)">SetProperty(SubmenuType,shutdown,1124)</onload>
+    <onload condition="SubString(Skin.String(ItemToEdit.SubMenu),videos)">SetProperty(SubmenuType,videos,1124)</onload>
+    <controls>
+        <control type="label" id="12111">
+            <label>$INFO[Window(1124).Property(SubmenuType)] </label>
+            <animation effect="fade" start="100" end="0" time="0" condition="true">conditional</animation>
+        </control>
+        <control type="group">
+            <left>230</left>	<top>-60</top>
+            <include>Animation_OpenCloseZoom</include>
+            <control type="image">
+                <left>230</left>	<top>250</top>	<width>600</width>	<height>600</height>
+                <texture border="20">osd/osd_settings_back_glow.png</texture>
+                <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+                <visible>!Skin.HasSetting(DisableGlowbar)</visible>
+                <include>PanelGlowFade</include>
+            </control>
+            <control type="image">
+                <left>230</left>	<top>250</top>	<width>600</width>	<height>600</height>
+                <texture border="20">osd/osd_settings_back.png</texture>
+                <colordiffuse>$VAR[DialogColorVar]</colordiffuse>
+            </control>
+            <control type="label">
+                <left>230</left>	<top>310</top>	<width>600</width>	<height>40</height>
+                <align>center</align>
+                <label>31716</label>
+                <font>Font_Reg31_Caps</font>
+            </control>
+            <control type="panel" id="4">
+                <left>255</left>	<top>370</top>	<width>550</width>	<height>540</height>
+                <aligny>center</aligny>
+                <onback>Skin.SetString(ItemToEdit.SubMenu,$INFO[Control.Getlabel(12111)])</onback>
+                <scrolltime>0</scrolltime>
+                <orientation>vertical</orientation>
+                <onright>5</onright>	<onleft>5</onleft>
+                <itemlayout height="60" width="600">
+                    <control type="image">
+                        <width>600</width>	<height>60</height>
+                        <texture>button-nofocus.png</texture>
+                        <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+                    </control>
+                    <control type="label">
+                        <width>600</width>	<height>60</height>
+                        <textoffsetx>10</textoffsetx>
+                        <label>$INFO[ListItem.Label]</label>
+                        <font>Font_Reg30_2</font>
+                        <textcolor>grey2</textcolor>
+                    </control>
+                </itemlayout>
+                <focusedlayout height="60" width="600">
+                    <control type="group">
+                        <visible>Control.HasFocus(4)</visible>
+                        <control type="image">
+                            <width>600</width>	<height>60</height>
+                            <texture border="8">views/tripanel/listselect_fo.png</texture>
+                            <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+                        </control>
+                        <control type="label">
+                            <width>600</width>	<height>60</height>
+                            <textoffsetx>10</textoffsetx>
+                            <label>$INFO[ListItem.Label]</label>
+                            <font>Font_Reg30_2</font>
+                            <scroll>true</scroll>
+                        </control>
+                    </control>
+                    <control type="group">
+                        <visible>!Control.HasFocus(4)</visible>
+                        <control type="image">
+                            <width>600</width>	<height>60</height>
+                            <texture>button-nofocus.png</texture>
+                            <colordiffuse>$VAR[ColorDiffuseVar]</colordiffuse>
+                        </control>
+                        <control type="label">
+                            <width>600</width>
+                            <textoffsetx>10</textoffsetx>
+                            <label>$INFO[ListItem.Label]</label>
+                            <font>Font_Reg30_2</font>
+                            <textcolor>grey2</textcolor>
+                        </control>
+                    </control>
+                    <control type="label">
+                        <width>600</width>
+                        <textoffsetx>10</textoffsetx>
+                        <label>$INFO[ListItem.Label]</label>
+                        <font>Font_Reg30_2</font>
+                        <textcolor>red</textcolor>
+                        <visible>Substring(Skin.String(ItemToEdit.Submenu),ListItem.Property(Sub))</visible>
+                    </control>
+                </focusedlayout>
+                <content>
+                    <item>
+                        <label>31719</label>
+                        <onclick>SetProperty(SubmenuType,none,1124)</onclick>
+                        <onclick>Skin.SetString(ItemToEdit.SubMenu,$INFO[Control.Getlabel(12111)])</onclick>
+                        <onclick>Dialog.Close(1150)</onclick>
+                    </item>
+                    <item>
+                        <label>31720</label>
+                        <onclick>SetProperty(SubmenuType,movies,1124)</onclick>
+                        <onclick>Skin.SetString(ItemToEdit.SubMenu,$INFO[Control.Getlabel(12111)])</onclick>
+                        <onclick>Dialog.Close(1150)</onclick>
+                    </item>
+                    <item>
+                        <label>31721</label>
+                        <onclick>SetProperty(SubmenuType,tv,1124)</onclick>
+                        <onclick>Skin.SetString(ItemToEdit.SubMenu,$INFO[Control.Getlabel(12111)])</onclick>
+                        <onclick>Dialog.Close(1150)</onclick>
+                    </item>
+                    <item>
+                        <label>31722</label>
+                        <onclick>SetProperty(SubmenuType,music,1124)</onclick>
+                        <onclick>Skin.SetString(ItemToEdit.SubMenu,$INFO[Control.Getlabel(12111)])</onclick>
+                        <onclick>Dialog.Close(1150)</onclick>
+                    </item>
+                    <item>
+                        <label>31723</label>
+                        <onclick>SetProperty(SubmenuType,settings,1124)</onclick>
+                        <onclick>Skin.SetString(ItemToEdit.SubMenu,$INFO[Control.Getlabel(12111)])</onclick>
+                        <onclick>Dialog.Close(1150)</onclick>
+                    </item>
+                    <item>
+                        <label>31724</label>
+                        <onclick>SetProperty(SubmenuType,shutdown,1124)</onclick>
+                        <onclick>Skin.SetString(ItemToEdit.SubMenu,$INFO[Control.Getlabel(12111)])</onclick>
+                        <onclick>Dialog.Close(1150)</onclick>
+                    </item>
+                    <item>
+                        <label>31726</label>
+                        <onclick>SetProperty(SubmenuType,videos,1124)</onclick>
+                        <onclick>Skin.SetString(ItemToEdit.SubMenu,$INFO[Control.Getlabel(12111)])</onclick>
+                        <onclick>Dialog.Close(1150)</onclick>
+                    </item>
+                </content>
+            </control>
+        </control>
+    </controls>
+</window>

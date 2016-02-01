@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window type="dialog" id="1121">
+    <defaultcontrol always="true">9011</defaultcontrol>
+    <onunload>ClearProperty(viewtypeselect,home)</onunload>
+    <coordinates>	<left>0</left>	<top>0</top>	<system>1</system>	</coordinates>
+    <animation type="WindowClose">	<effect type="slide" end="-460,0" time="320" easing="in" tween="cubic" />	</animation>
+    <animation type="WindowOpen">	<effect type="fade" end="100" delay="320" time="160" />	</animation>
+    <controls>
+        <control type="list" id="9011">
+            <!-- viewtype selection including config-->
+            <width>450</width>	<height>1080</height>
+            <visible>!IsEmpty(Window(home).Property(viewtypeselect))</visible>
+            <orientation>vertical</orientation>
+            <onleft>Dialog.Close(1121)</onleft>	<onup>9011</onup>	<ondown>9011</ondown>	<onright>Dialog.Close(1121)</onright>
+            <itemlayout width="219" height="60">
+                <control type="image">
+                    <width>219</width>	<height>60</height>
+                    <texture border="3">settings/listselect_nf.png</texture>
+                </control>
+                <control type="label">
+                    <left>15</left>
+                    <width>219</width>	<height>60</height>
+                    <font>Font_Reg30_2</font>
+                    <textcolor>grey2</textcolor>
+                    <info>ListItem.Label</info>
+                    <visible>!StringCompare(ListItem.Label,Container.Viewmode)</visible>
+                </control>
+                <control type="label">
+                    <left>15</left>
+                    <width>219</width>	<height>60</height>
+                    <font>Font_Reg30_2</font>
+                    <info>ListItem.Label</info>
+                    <visible>StringCompare(ListItem.Label,Container.Viewmode)</visible>
+                </control>
+                <control type="image">
+                    <width>219</width>	<height>60</height>
+                    <aspectratio>keep</aspectratio>
+                    <texture>close.png</texture>
+                    <visible>!IsEmpty(ListItem.Thumb)</visible>
+                </control>
+            </itemlayout>
+            <focusedlayout width="219" height="60">
+                <control type="image">
+                    <width>219</width>	<height>60</height>
+                    <texture border="3">settings/listselect_nf.png</texture>
+                    <visible>!Control.HasFocus(9011)</visible>
+                </control>
+                <control type="image">
+                    <width>219</width>	<height>60</height>
+                    <texture border="8">views/tripanel/listselect_fo.png</texture>
+                    <colordiffuse>$VAR[FocusTextureColorVar]</colordiffuse>
+                    <include>PanelGlowFade</include>
+                    <visible>Control.HasFocus(9011)</visible>
+                </control>
+                <control type="label">
+                    <left>15</left>
+                    <width>219</width>	<height>60</height>
+                    <font>Font_Reg30_2</font>
+                    <info>ListItem.Label</info>
+                    <textcolor>grey2</textcolor>
+                    <visible>!Control.HasFocus(9011)</visible>
+                </control>
+                <control type="label">
+                    <left>15</left>
+                    <width>219</width>	<height>60</height>
+                    <font>Font_Reg30_2</font>
+                    <info>ListItem.Label</info>
+                    <visible>Control.HasFocus(9011)</visible>
+                </control>
+                <control type="image">
+                    <width>219</width>	<height>60</height>
+                    <aspectratio>keep</aspectratio>
+                    <texture>close.png</texture>
+                    <visible>!IsEmpty(ListItem.Thumb)</visible>
+                </control>
+            </focusedlayout>
+            <content>
+                <item>
+                    <label>$LOCALIZE[535]</label>
+                    <onclick>Container.SetViewMode(50)</onclick>
+                </item>
+                <item>
+                    <label>$LOCALIZE[31477]</label>
+                    <onclick>Container.SetViewMode(52)</onclick>
+                    <visible>[Window.IsActive(videos) | Window.IsActive(programs) | Window.IsActive(videoplaylist)] + !Container.Content(addons)</visible>
+                    <visible>![Window.IsActive(videos) + !IsEmpty(Skin.String(DisableTriPanelVL))]</visible>
+                </item>
+                <item>
+                    <label>$LOCALIZE[31477]</label>
+                    <onclick>Container.SetViewMode(53)</onclick>
+                    <visible>Container.Content(artists) | Container.Content(albums) | Container.Content(addons) | Container.Content(songs) | Window.IsActive(musicfiles)</visible>
+                </item>
+                <item>
+                    <label>31233</label>
+                    <onclick>Container.SetViewMode(550)</onclick>
+                    <visible>IsEmpty(Skin.String(DisablePanelVL))</visible>
+                    <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+                </item>
+                <item>
+                    <label>31381</label>
+                    <onclick>Container.SetViewMode(518)</onclick>
+                    <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(artists) | Container.Content(albums) | Container.Content(addons)</visible>
+                    <visible>IsEmpty(Skin.String(DisableInfoPanelVL))</visible>
+                </item>
+                <item>
+                    <label>$LOCALIZE[31283]</label>
+                    <onclick>Container.SetViewMode(512)</onclick>
+                    <visible>!IsEmpty(Container.FolderPath)</visible>
+                    <visible>!Container.Content(years)</visible>
+                    <visible>![Window.IsActive(videos) + !IsEmpty(Skin.String(DisableInfoWallVL))]</visible>
+                </item>
+                <item>
+                    <label>$LOCALIZE[31380]</label>
+                    <onclick>Container.SetViewMode(517)</onclick>
+                    <visible>Window.IsActive(pictures) + !Substring(Container.FolderPath,\comics\)</visible>
+                </item>
+                <item>
+                    <label>$LOCALIZE[20359]</label>
+                    <onclick>Container.SetViewMode(514)</onclick>
+                    <visible>Container.Content(episodes) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Window.IsActive(musiclibrary)</visible>
+                    <visible>![Window.IsActive(videos) + !IsEmpty(Skin.String(DisableEpisodeVL))]</visible>
+                </item>
+			</content>
+		</control>
+   </controls>
+</window>

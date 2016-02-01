@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window>
+	<defaultcontrol>-</defaultcontrol>
+	<controls>
+		<control type="group" id="0">
+			<animation effect="slide" end="0,45" time="160" tween="cubic" condition="Window.IsVisible(seekbar) + !Skin.HasSetting(Show_Info_Paused)">Conditional</animation>
+			<animation effect="slide" end="0,165" time="160" tween="cubic" condition="[Window.IsVisible(seekbar) + Skin.HasSetting(Show_Info_Paused)] | [Window.IsVisible(fullscreeninfo) + IsEmpty(Window(home).Property(morefullscreeninfo)) + Player.Paused]">Conditional</animation>
+			<animation effect="slide" end="0,135" time="160" tween="cubic" condition="Window.IsVisible(fullscreeninfo) + IsEmpty(Window(home).Property(morefullscreeninfo)) + !Player.Paused">Conditional</animation>
+			<!-- codec infos -->
+			<control type="image">
+				<left>0</left>	<top>0</top>	<width>1920</width>	<height>340</height>
+				<texture flipy="true">views/lowlist_panelback.png</texture>
+				<animation effect="fade" start="100" end="80" time="40" condition="true">Conditional</animation>
+			</control>
+			<control type="grouplist" id="0">
+				<left>30</left>	<top>0</top>	<width>1920</width>	<height>300</height>
+				<aligny>top</aligny>
+				<itemgap>10</itemgap>
+				<control type="label" id="10">
+					<description>row 1 label</description>
+					<width>1770</width>	<height>90</height>
+					<align>left</align>	<aligny>center</aligny>
+					<font>Font_Reg28</font>	<textcolor>grey2</textcolor>
+					<label>-</label>
+				</control>
+				<control type="label" id="11">
+					<description>row 2 label</description>
+					<width>1770</width>	<height>90</height>
+					<align>left</align>	<aligny>center</aligny>
+					<font>Font_Reg28</font>
+					<label>-</label>
+					<textcolor>grey2</textcolor>
+				</control>
+				<control type="label" id="12">
+					<description>row 3 label</description>
+					<width>1770</width>	<height>90</height>
+					<align>left</align>	<aligny>center</aligny>
+					<font>Font_Reg28</font>
+					<label>-</label>
+					<textcolor>grey2</textcolor>
+				</control>
+			</control>
+		</control>
+		<control type="group" id="1">
+			<animation type="WindowOpen">
+				<effect type="fade" time="160" end="100"/>
+				<effect type="slide" time="160" start="0,-98" end="0,0" tween="cubic"/>
+			</animation>
+			<animation type="WindowClose">
+				<effect type="fade" time="160" start="100" end="0"/>
+				<effect type="slide" time="160" end="0,-98" easing="in" tween="cubic"/>
+			</animation>
+			<animation type="Visible">
+				<effect type="fade" time="160" end="100"/>
+				<effect type="slide" time="160" start="0,-98" end="0,0" tween="cubic"/>
+			</animation>
+			<animation type="Hidden">
+				<effect type="fade" time="160" start="100" end="0"/>
+				<effect type="slide" time="160" end="0,-98" easing="in" tween="cubic"/>
+			</animation>
+			<visible>![Player.Forwarding|Player.Seeking] + ![Window.IsVisible(seekbar) | Window.IsVisible(fullscreeninfo)]</visible>
+			<control type="image" id="1">
+				<posx>704</posx>
+				<width>513</width>	<height>87</height>
+				<texture flipy="true">osd/osd_top_bar.png</texture>
+				<visible>[[Player.Paused + !Player.Caching] + !Player.Seeking + !Player.DisplayAfterSeek] | [[Player.Paused + Player.Caching] + !Player.Seeking] | Player.Seeking|[Player.DisplayAfterSeek + ![player.forwarding | player.rewinding] + !IsEmpty(Player.SeekOffset)]</visible>
+			</control>
+			<control type="label" id="1">
+				<posx>750</posx>
+				<width>420</width>	<height>42</height>
+				<align>center</align>
+				<label>$LOCALIZE[15107] $INFO[Player.CacheLevel]%</label>
+				<font>Font_Reg33_Caps</font>
+				<shadowcolor>88e5e5e5</shadowcolor>
+				<textcolor>FF363636</textcolor>
+				<visible>[Player.Paused + Player.Caching] + !Player.Seeking</visible>
+			</control>
+		</control>
+	</controls>
+</window>
